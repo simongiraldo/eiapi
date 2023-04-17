@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index,follow">
+        <meta name="description" content="Login para ver tu informacion">
+        <title>EIAPI | Login</title>
+        <link rel="stylesheet" href="style2.css">
+    </head>
+<body>
+    <main>
+        <div class="container">
+            <header class="header">
+                <img src="Logo.png" class=img1 align="left">
+                <br>
+            </header>
+        </div>
+        <div class="container-login">
+            <div class="wrap-login">
+                <h1>LOG IN</h1>
+                <img src="Iconcolor.png" class="logo">
+                <p>Ingrese con su usuario de EIA Digital</p>
+                <form method="POST" action="{% url 'login' %}">
+                    <input placeholder="Usuario:" required class="input" name="username" type="text">
+                    <input id="ipass" type="password" class="input" name="password" placeholder="Contraseña:" required>
+                    <br> <br>
+                    <input type="submit" value="INGRESAR" class="submit">
+                    <br>
+                    
+                </form>
+            </div>
+        </main>
+</body>
+
+</html>
