@@ -7,6 +7,14 @@ def main():
     response = make_response(redirect('/login'))
     return response
 
-@app.route('/login')
+@app.route('/login', methods=("GET", "POST"))
 def login():
+    if request.method == 'POST':
+        autenthicated = True
+        if autenthicated:
+            return make_response(redirect('/documentation'))
+    return render_template('index.html')
+
+@app.route('/documentation')
+def documentation():
     return render_template('documentation.html')

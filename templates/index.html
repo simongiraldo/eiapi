@@ -7,7 +7,7 @@
         <meta name="robots" content="index,follow">
         <meta name="description" content="Login para ver tu informacion">
         <title>EIAPI | Login</title>
-        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css')}}">
     </head>
 <body>
     <main>
@@ -22,7 +22,7 @@
                 <h1>LOG IN</h1>
                 <img src="Iconcolor.png" class="logo">
                 <p>Ingrese con su usuario de EIA Digital</p>
-                <form method="POST" action="{% url 'login' %}">
+                <form method="POST" action="">
                     <input placeholder="Usuario:" required class="input" name="username" type="text">
                     <input id="ipass" type="password" class="input" name="password" placeholder="Contraseña:" required>
                     <br> <br>
