@@ -89,7 +89,7 @@ a{
     -webkit-box-pack: center !important;
     align-items: center;
     padding: 15px;
-    background-image:url("bg.jpg");
+    background-image:url("../images/bg.jpg");
     background-size: cover;
 
 }
@@ -110,6 +110,17 @@ a{
     -ms-box-shadow: 0 5px 10px 0 rgba(255, 255, 255, 0.2);;
 }
 
+.error_login {  
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #e3e3e3;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #f00;
+    position: relative;
+    left: 70px;
+    bottom: 10px;
+}
 
 input[type="submit"] {
     padding: 0.8em 1.8em;

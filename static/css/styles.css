@@ -184,31 +184,12 @@ h2 {
     font-size: 2.5rem;
 }
 
-#titulo { /* esto es para un ejemplo de la pagina de HTML y css */
-    color: #f00;
-}
-
 .line {
     border-top:  black dotted 0.3rem;
     width: 100%;
     height: 3rem;
 }
 
-/* Botones del index */
-.container__button--5 {
-    border: solid 0.2rem #0ff100;
-    box-shadow: 0 0 3rem #0ff100;
-}
-
-.container__button--5:hover {
-    background: #e1e1e1;
-    color: #000000;
-}
-
-.container__button--5:active {
-    background: #0ff100;
-}
-/* Botones del index */
 
 footer {
     width:100%;
