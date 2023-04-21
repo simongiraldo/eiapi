@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from repository.estudiantes import estudiantes
 
 app = Flask(__name__)
 
@@ -11,6 +10,10 @@ def main():
     return jsonify({"Message": "Pong"})
 
 
-@app.route('/v1/estudiantes')
+@app.route('/v1/estudiantes', methods=("GET", "POST"))
 def estudiantes():
+    if request.method == 'POST':
+        """ request_data = request.get_json()
+        name = request_data['name']
+        error = estudiantes.addEstudiante(name) """
     return jsonify({"Message": "Api funciona"})
