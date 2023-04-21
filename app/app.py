@@ -1,4 +1,6 @@
 from flask import Flask, request, make_response, redirect, render_template
+from repository.db import session, conection
+from repository.models import User
 
 app = Flask(__name__, template_folder='../templates/', static_folder='../static/')
 
@@ -16,7 +18,7 @@ def login():
     if request.method == 'POST':
         user = request.form['username']
         password = request.form['password']
-        if validate(user, password):
+        if validateLogin(user, password):
             return make_response(redirect('/documentation'))
         return render_template('index.html', error=True)
     return render_template('index.html', error=False)
@@ -27,5 +29,6 @@ def documentation():
     return render_template('documentation.html')
 
 
-def validate(u, p):
-    return (u == "Usuario1" and p == "sistemaslomejor")
+def validateLogin(u, p):
+    # Validar con la DB
+    return u=="Usuario1" and p=="sistemaslomejor"
