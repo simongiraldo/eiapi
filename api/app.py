@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, json
 from repository.db import session, conection
 from repository.models import Student
 
@@ -14,9 +14,11 @@ def main():
     return jsonify({"Message": "Pong"})
 
 
-@app.route('/v1/estudiantes', methods=("POST"))
+@app.route('/v1/estudiantes', methods=["POST"])
 def estudiantes():
-    request_data = request.get_json()
+    """ request_data = request.get_json()
+    name = request_data['name'] """
+    request_data = json.loads(request.data)
     name = request_data['name']
     if validateStudent(name):
         with conection.connect() as con:
@@ -26,8 +28,9 @@ def estudiantes():
                 ses.commit()
             except:
                 return jsonify({"Message": "error"})
-
-        return jsonify({f"Message": "User '{name}' created"})
+            
+        succes = f'User {name} created'
+        return jsonify({f"Message": succes})
 
 
 def validateStudent(name):
