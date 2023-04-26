@@ -19,21 +19,38 @@
         </div>
         <div class="container-login">
             <div class="wrap-login">
-                <h1>LOG IN</h1>
-                <img src="{{ url_for('static', filename='images/Iconcolor.png')}}" class="logo">
-                <p>Ingrese con su usuario de EIA Digital</p>
-                <form method="POST" action="">
-                    <input placeholder="Usuario:" required class="input" name="username" type="text">
-                    <input id="ipass" type="password" class="input" name="password" placeholder="Contraseña:" required>
-                    <br> 
-                    {% if error %}
-                        <code class="error_login">Usuario y/o contraseña invalidos</code>
-                    {% endif %}
-                    <br>
-                    <input type="submit" value="INGRESAR" class="submit">
-                    <br>
-                    
-                </form>
+                {% if signup %}
+                    <h1>SIGN UP</h1>
+                    <img src="{{ url_for('static', filename='images/Iconcolor.png')}}" class="logo">
+                    <p>Registrese con su correo educativo</p>
+                    <form method="POST" action="">
+                        <input placeholder="Correo:" required class="input" name="email" type="text">
+                        <input id="ipass" type="password" class="input" name="password" placeholder="Contraseña:" required>
+                        <br> 
+                        {% if error %}
+                            <code class="error_login">Credenciales no validos</code>
+                        {% endif %}
+                        <br>
+                        <input type="submit" value="Sign up" class="submit">
+                        <br>
+                    </form>
+                {% else %}
+                    <h1>LOG IN</h1>
+                    <img src="{{ url_for('static', filename='images/Iconcolor.png')}}" class="logo">
+                    <p>Ingrese con su usuario de EIA Digital</p>
+                    <form method="POST" action="">
+                        <input placeholder="Usuario:" required class="input" name="username" type="text">
+                        <input id="ipass" type="password" class="input" name="password" placeholder="Contraseña:" required>
+                        <br> 
+                        {% if error %}
+                            <code class="error_login">Usuario y/o contraseña invalidos</code>
+                        {% endif %}
+                        <br>
+                        <input type="submit" value="INGRESAR" class="submit">
+                        <br>
+                    </form>
+                    <a href="/signup"><button>Sign up</button></a>
+                {% endif %}
             </div>
         </main>
 </body>

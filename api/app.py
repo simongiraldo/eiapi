@@ -16,23 +16,27 @@ def main():
 
 @app.route('/v1/estudiantes', methods=["POST"])
 def estudiantes():
-    """ request_data = request.get_json()
-    name = request_data['name'] """
     request_data = json.loads(request.data)
-    name = request_data['name']
-    if validateStudent(name):
+    user_name = request_data['user_name']
+    name = request_data['nombre']
+    edad = int(request_data['edad'])
+    pregrado = request_data['pregrado']
+    semestre_actual  = int(request_data['semestre_actual'])
+    transporte = request_data['transporte']
+    if validateStudent(user_name, name, edad, pregrado, semestre_actual, transporte):
         with conection.connect() as con:
-            new_user = Student(username=name)
-            ses.add(new_user)
+            new_student = Student(username=user_name, nombre=name, edad=edad, pregrado=pregrado, semestre_actual=semestre_actual)
+            ses.add(new_student)
             try:
                 ses.commit()
             except:
-                return jsonify({"Message": "error"})
+                return jsonify({"error: true"}, {"Message": "error, wrong fields"})
             
-        succes = f'User {name} created'
-        return jsonify({f"Message": succes})
+        succes = f'User {user_name} created'
+        return jsonify({"error: false"}, {f"Message": succes})
+    return jsonify({"error: true"}, {"Message": "error, wrong fields"})
 
-
-def validateStudent(name):
-    return len(name) != 0 and len(name) < 200
+def validateStudent(user_name, name, edad, pregrado, semestre_actual, transporte):
+     return len(name) != 0 and len(name) < 200 and len(user_name) != 0 and len(user_name) < 200 and len(pregrado) != 0 and len(pregrado) < 100 and isinstance(edad, int) and isinstance(semestre_actual, int) and len(transporte) != 0 and len(transporte) < 100
+       
 
