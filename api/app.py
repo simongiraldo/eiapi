@@ -17,7 +17,7 @@ def main():
 @app.route('/v1/estudiantes', methods=["POST"])
 def estudiantes():
     request_data = json.loads(request.data)
-    user_name = request_data['user_name']
+    user_name = request_data['username']
     name = request_data['nombre']
     edad = int(request_data['edad'])
     pregrado = request_data['pregrado']
