@@ -1,4 +1,4 @@
-from flask import Flask, request, make_response, redirect, render_template
+from flask import Flask, request, make_response, redirect, render_template, jsonify
 from repository.db import session, conection
 from repository.models import User
 
