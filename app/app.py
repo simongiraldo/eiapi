@@ -5,6 +5,7 @@ from repository.models import User
 app = Flask(__name__, template_folder='../templates/', static_folder='../static/')
 
 ses = session()
+""" ejemplo """
 
 if __name__ == '__main__':
     app.run(debug=False)
