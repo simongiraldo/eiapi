@@ -11,6 +11,14 @@ class Student(base):
     semestre_actual = sa.Column(sa.Integer)
     tranporte = sa.Column(sa.String(100))
 
+class Curso(base):
+    __tablename__ = "curso"
+    id = sa.Column(sa.Integer, autoincrement=True, primary_key=True)
+    name = sa.Column(sa.String(200))
+    description = sa.Column(sa.String(100))
+    creditos = sa.Column(sa.Integer)
+    semestre = sa.Column(sa.Integer)
+
 
 """ class Carrera(base):
     pass
